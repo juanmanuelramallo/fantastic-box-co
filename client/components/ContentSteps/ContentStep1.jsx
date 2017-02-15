@@ -1,11 +1,14 @@
 import React from 'react'
-import classnames from 'classnames'
 
 export default class ContentStep1 extends React.Component {
   constructor() {
     super()
-    
   }
+
+  handleClick(){
+    this.props.nextStep()
+  }
+
   render() {
     return (
       <div id="step-1" className="content-step">
@@ -36,7 +39,7 @@ export default class ContentStep1 extends React.Component {
         </div>
 
         <div className="form-actions">
-          <button type="button" onClick={this.props.handleClick.bind(this, 2)} className="btn btn-primary btn-next">
+          <button type="button" onClick={this.handleClick.bind(this)} className="btn btn-primary btn-next" disabled={!this.props.height || !this.props.width || !this.props.length || !this.props.quantity}>
             Next
           </button>
         </div>

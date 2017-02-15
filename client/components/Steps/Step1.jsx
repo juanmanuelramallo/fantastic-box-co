@@ -13,13 +13,13 @@ export default class Step1 extends React.Component {
         <h3 className="step-heading">Dimensions &amp; Quantity</h3>
         <dl>
           <dt>Width:</dt>
-          <dd>0.0m</dd>
+          <dd>{this.props.width}m</dd>
           <dt>Height:</dt>
-          <dd>0.0m</dd>
+          <dd>{this.props.height}m</dd>
           <dt>Length:</dt>
-          <dd>0.0m</dd>
+          <dd>{this.props.length}m</dd>
           <dt>Quantity:</dt>
-          <dd>0</dd>
+          <dd>{this.props.quantity}</dd>
         </dl>
       </div>
     )

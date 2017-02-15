@@ -2,6 +2,23 @@ import React from 'react'
 import classnames from 'classnames'
 
 export default class ContentStep3 extends React.Component {
+
+  backButton(){
+    this.props.prevStep()
+  }
+
+  nextButton(){
+    if (this.props.quality === ""){
+      this.props.addNotification("You must select a print quality", "error", 301)
+    } else {
+      this.props.nextStep()
+    }
+  }
+
+  handleQuality(event) {
+    this.props.handleQuality(event.target.value)
+  }
+
   render() {
 
     return (
@@ -15,7 +32,7 @@ export default class ContentStep3 extends React.Component {
         <ol className="btn-radios-list">
           <li>
             <label>
-              <input type="radio" name="print-quality" value="3-color"></input>
+              <input type="radio" name="print-quality" value="3-color" checked={this.props.quality === '3-color'} onChange={this.handleQuality.bind(this)}></input>
               <span className="btn btn-radio">
                 3 colours<br></br>&pound;0.20 m<sup>2</sup>
               </span>
@@ -23,7 +40,7 @@ export default class ContentStep3 extends React.Component {
           </li>
           <li>
             <label>
-              <input type="radio" name="print-quality" value="2-color"></input>
+              <input type="radio" name="print-quality" value="2-color" checked={this.props.quality === '2-color'} onChange={this.handleQuality.bind(this)}></input>
               <span className="btn btn-radio">
                 2 colours<br></br>&pound;0.10 m<sup>2</sup>
               </span>
@@ -31,7 +48,7 @@ export default class ContentStep3 extends React.Component {
           </li>
           <li>
             <label>
-              <input type="radio" name="print-quality" value="black-only"></input>
+              <input type="radio" name="print-quality" value="black-only" checked={this.props.quality === 'black-only'} onChange={this.handleQuality.bind(this)}></input>
               <span className="btn btn-radio">
                 Black only<br></br>&pound;0.05 m<sup>2</sup>
               </span>
@@ -39,7 +56,7 @@ export default class ContentStep3 extends React.Component {
           </li>
           <li>
             <label>
-              <input type="radio" name="print-quality" value="no-printing"></input>
+              <input type="radio" name="print-quality" value="no-printing" checked={this.props.quality === 'no-printing'} onChange={this.handleQuality.bind(this)}></input>
               <span className="btn btn-radio">
                 No printing<br></br>&pound;0.00
               </span>
@@ -47,7 +64,7 @@ export default class ContentStep3 extends React.Component {
           </li>
           <li>
             <label>
-              <input type="radio" name="print-quality" value="FantasticBoxCo-branding"></input>
+              <input type="radio" name="print-quality" value="FantasticBoxCo-branding" checked={this.props.quality === 'FantasticBoxCo-branding'} onChange={this.handleQuality.bind(this)}></input>
               <span className="btn btn-radio">
                 <strong>FantasticBoxCo</strong> branding<br></br>5% discount on total price
               </span>
@@ -56,10 +73,10 @@ export default class ContentStep3 extends React.Component {
         </ol>
 
         <div className="form-actions">
-          <button type="button" onClick={this.props.handleClick.bind(this,2)} className="btn btn-back">
+          <button type="button" onClick={this.backButton.bind(this)} className="btn btn-back">
             back
           </button>
-          <button type="button" onClick={this.props.handleClick.bind(this,4)} className="btn btn-primary btn-next">
+          <button type="button" onClick={this.nextButton.bind(this)} className="btn btn-primary btn-next">
             Next
           </button>
         </div>
