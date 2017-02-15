@@ -1,0 +1,21 @@
+.greet {
+  font-size: 22px;
+  font-variant: small-caps;
+  color: #331;
+  padding: 50px;
+  text-align: center;
+  background-color: lightgray;
+  border-radius: 5px;
+
+
+  &.good {
+    color: white;
+    background-color: lightblue;
+  }
+
+  &.bad {
+    color:black;
+    background-color: pink;
+  }
+
+}
