@@ -1,4 +1,4 @@
-# react-fantastic-box-co-templ
+# Fantastic-box-co - React
 
 Run with `yarn start`
 
